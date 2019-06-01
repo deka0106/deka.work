@@ -1,12 +1,7 @@
 <template>
   <v-app dark>
-    <v-toolbar fixed app>
-      <v-toolbar-title>
-        Deka
-      </v-toolbar-title>
-    </v-toolbar>
     <v-content>
-      <v-container>
+      <v-container fill-height>
         <nuxt />
       </v-container>
     </v-content>
@@ -28,7 +23,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-@Component({})
+@Component
 export default class extends Vue {
   links = [
     { name: 'Home', path: '/' },
