@@ -1,19 +1,13 @@
 <template>
   <v-layout justify-center align-center>
-    <v-flex text-xs-center>
-      <logo />
+    <v-flex display-1 text-xs-center>
+      Something wrong...
     </v-flex>
   </v-layout>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import Logo from '~/components/Logo.vue'
-
-@Component({
-  components: {
-    Logo
-  }
-})
+@Component({})
 export default class extends Vue {}
 </script>
