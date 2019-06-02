@@ -1,13 +1,11 @@
 <template>
-  <v-layout>
-    <v-flex text-xs-center>
-      Works
-    </v-flex>
+  <v-layout justify-center align-center>
+    <span class="display-1">工事中</span>
   </v-layout>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-@Component({})
+@Component
 export default class extends Vue {}
 </script>
