@@ -3,7 +3,7 @@
     <div>
       <v-layout column justify-center align-center>
         <div class="balloon headline">I'm Deka</div>
-        <logo />
+        <logo size="240" />
         <v-layout row justify-center align-center>
           <v-btn
             v-for="account in accounts"
