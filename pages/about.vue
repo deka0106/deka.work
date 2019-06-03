@@ -38,7 +38,7 @@
           :icon="card.icon"
           :title="card.title"
         >
-          <div class="px-3 py-2">
+          <div class="pa-2">
             <ul>
               <li v-for="content in card.contents" :key="content.item">
                 {{ content.item }}
@@ -100,11 +100,11 @@ export default class extends Vue {
       contents: [
         {
           item: 'ゲーム',
-          description: '昔はメイプル/CSO/LoL，最近はADV'
+          description: '昔はメイプル/CSO/LoL，最近はノベルゲー'
         },
         {
           item: 'アニメ',
-          description: '最近は日常系/ラブコメ系が好き'
+          description: '日常系/ラブコメ系が好き'
         },
         {
           item: 'CTF',
@@ -198,9 +198,9 @@ export default class extends Vue {
       contents: [
         {
           item:
-            'エイチーム1dayインターンシップ ゲームプログラマーコース （2017年8月）'
+            '株式会社エイチーム 1dayインターンシップ ゲームプログラマーコース （2017年8月）'
         },
-        { item: 'エヌツーエスエム（2018年4月〜）' }
+        { item: '株式会社エヌツーエスエム（2018年4月〜）' }
       ]
     }
   ]
