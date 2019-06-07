@@ -1,11 +1,11 @@
 <template>
-  <v-layout flex-child wrap>
+  <v-layout row wrap justify-space-around>
     <v-flex v-for="work in works" :key="work.name" xs12 sm6 lg4>
-      <v-sheet class="d-flex" color="transparent">
-        <v-card hover class="ma-2">
+      <v-sheet class="d-flex pa-2" color="transparent">
+        <v-card hover>
           <v-img :src="work.img" height="200" />
           <v-card-title primary-title class="py-2">
-            <div class="headline">{{ work.name }}</div>
+            <span class="headline">{{ work.name }}</span>
           </v-card-title>
           <v-divider></v-divider>
           <v-container class="px-3 py-2">

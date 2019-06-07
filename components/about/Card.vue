@@ -1,13 +1,15 @@
 <template>
   <v-flex xs12 sm6 lg4>
-    <v-card class="ma-2">
-      <v-card-title primary-title class="py-2">
-        <v-icon left>{{ icon }}</v-icon>
-        <span class="title font-weight-light">{{ title }}</span>
-      </v-card-title>
-      <v-divider></v-divider>
-      <slot />
-    </v-card>
+    <v-sheet class="d-flex pa-2" color="transparent">
+      <v-card hover>
+        <v-card-title primary-title class="py-2">
+          <v-icon left>{{ icon }}</v-icon>
+          <span class="title font-weight-light">{{ title }}</span>
+        </v-card-title>
+        <v-divider></v-divider>
+        <slot />
+      </v-card>
+    </v-sheet>
   </v-flex>
 </template>
 
