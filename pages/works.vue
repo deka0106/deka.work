@@ -15,13 +15,16 @@
           </v-container>
           <v-divider></v-divider>
           <v-card-actions>
-            <v-chip v-for="tag in work.tags" :key="tag" small class="mx-1">
-              {{ tag }}
-            </v-chip>
+            <v-container class="pa-0">
+              <v-chip v-for="tag in work.tags" :key="tag" small class="mx-1">
+                {{ tag }}
+              </v-chip>
+            </v-container>
             <v-spacer></v-spacer>
-            <v-btn icon :href="work.url" target="_blank">
-              <v-icon>fas fa-link</v-icon>
+            <v-btn icon small :href="work.url" target="_blank">
+              <v-icon small>fas fa-external-link-alt</v-icon>
             </v-btn>
+            <v-chip color="grey darken-4" class="ml-1">{{ work.date }}</v-chip>
           </v-card-actions>
         </v-card>
       </v-sheet>
@@ -43,7 +46,8 @@ export default class extends Vue {
         'traPにてチームで制作',
         '主にデザイン(ロゴ, UI)を担当'
       ],
-      url: 'https://flythm.trap.games'
+      url: 'https://flythm.trap.games',
+      date: 'Apr, 2019'
     },
     {
       name: '課金王者ガチャキング',
@@ -54,7 +58,8 @@ export default class extends Vue {
         'traPにてチームで制作',
         '主にクライアントプログラム(アニメーション, デザイン)を担当'
       ],
-      url: 'https://gachaking.trap.games'
+      url: 'https://gachaking.trap.games',
+      date: 'Apr, 2017'
     },
     {
       name: 'RefactorHub',
@@ -64,7 +69,20 @@ export default class extends Vue {
         'リファクタリング実証的研究のためのデータセット作成環境',
         '研究にて制作，現在も改良中'
       ],
-      url: 'https://refactorhub.herokuapp.com/'
+      url: 'https://refactorhub.herokuapp.com/',
+      date: 'Mar, 2019'
+    },
+    {
+      name: 'stoikhe.io',
+      img: '/works/stoikheio.png',
+      tags: ['Play', 'Java'],
+      descriptions: [
+        '講義の理解を補助するノート作りツール',
+        '授業にてチームで制作',
+        '主にフロントエンド(デザイン)を担当'
+      ],
+      url: 'https://refactorhub.herokuapp.com/',
+      date: 'Feb, 2018'
     }
   ]
 }
