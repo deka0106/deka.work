@@ -1,26 +1,30 @@
 <template>
-  <v-layout row wrap justify-space-around>
+  <v-layout flex-child wrap>
     <v-flex v-for="work in works" :key="work.name" xs12 sm6 lg4>
-      <v-card hover class="ma-2">
-        <v-img :src="work.img" height="200" />
-        <v-card-title primary-title class="pt-2 pb-0">
-          <div class="headline">{{ work.name }}</div>
-        </v-card-title>
-        <div class="px-2">
-          <v-chip v-for="tag in work.tags" :key="tag" small>{{ tag }}</v-chip>
-        </div>
-        <div class="px-3 py-2">
-          <div v-for="description in work.descriptions" :key="description">
-            {{ description }}
-          </div>
-        </div>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn icon :href="work.url" target="_blank">
-            <v-icon>fas fa-link</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+      <v-sheet class="d-flex" color="transparent">
+        <v-card hover class="ma-2">
+          <v-img :src="work.img" height="200" />
+          <v-card-title primary-title class="py-2">
+            <div class="headline">{{ work.name }}</div>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-container class="px-3 py-2">
+            <div v-for="description in work.descriptions" :key="description">
+              {{ description }}
+            </div>
+          </v-container>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-chip v-for="tag in work.tags" :key="tag" small class="mx-1">
+              {{ tag }}
+            </v-chip>
+            <v-spacer></v-spacer>
+            <v-btn icon :href="work.url" target="_blank">
+              <v-icon>fas fa-link</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-sheet>
     </v-flex>
   </v-layout>
 </template>
