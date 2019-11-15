@@ -1,19 +1,21 @@
-import NuxtConfiguration from '@nuxt/config'
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
-const pkg = require('./package')
+import { Configuration } from '@nuxt/types'
 
-const nuxtConfig: NuxtConfiguration = {
+const config: Configuration = {
   mode: 'spa',
 
   /*
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'Deka',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -34,50 +36,42 @@ const nuxtConfig: NuxtConfiguration = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: {},
 
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  css: [],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify'],
+  plugins: [],
 
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
+
+  /*
+   ** vuetify module configuration
+   ** https://github.com/nuxt-community/vuetify-module
+   */
+  vuetify: {
+    theme: {
+      dark: true
+    },
+    icons: {
+      iconfont: 'fa'
+    },
+    customVariables: ['~/assets/styles/variables.scss']
+  },
 
   /*
    ** Build configuration
    */
-  build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
-      }
-    },
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        if (!config.module) return
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(ts|js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+  build: {},
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/eslint-module']
 }
 
-export default nuxtConfig
+export default config
