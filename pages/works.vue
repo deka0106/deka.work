@@ -1,40 +1,26 @@
 <template>
-  <v-layout row wrap justify-space-around>
-    <v-flex v-for="work in works" :key="work.name" xs12 sm6 lg4>
-      <v-sheet class="d-flex pa-2" color="transparent">
-        <v-card hover>
-          <v-img :src="work.img" height="200" />
-          <v-card-title primary-title class="py-2">
-            <span class="headline">{{ work.name }}</span>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-container class="px-3 py-2">
-            <div v-for="description in work.descriptions" :key="description">
-              {{ description }}
-            </div>
-          </v-container>
-          <v-divider></v-divider>
-          <v-card-actions>
-            <v-container class="pa-0">
-              <v-chip v-for="tag in work.tags" :key="tag" small class="mx-1">
-                {{ tag }}
-              </v-chip>
-            </v-container>
-            <v-spacer></v-spacer>
-            <v-btn icon small :href="work.url" target="_blank">
-              <v-icon small>fas fa-external-link-alt</v-icon>
-            </v-btn>
-            <v-chip color="grey darken-4" class="ml-1">{{ work.date }}</v-chip>
-          </v-card-actions>
-        </v-card>
-      </v-sheet>
-    </v-flex>
-  </v-layout>
+  <v-container fill-height>
+    <v-row>
+      <v-col>
+        <v-row justify="center">
+          <v-col v-for="work in works" :key="work.name" cols="12" sm="6" lg="4">
+            <work-card :work="work" />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-@Component
+import WorkCard from '~/components/works/WorkCard.vue'
+
+@Component({
+  components: {
+    WorkCard
+  }
+})
 export default class extends Vue {
   works = [
     {
@@ -64,12 +50,12 @@ export default class extends Vue {
     {
       name: 'RefactorHub',
       img: '/works/refactorhub.png',
-      tags: ['Spring Boot', 'Kotlin'],
+      tags: ['Spring Boot', 'Kotlin', 'Vue.js'],
       descriptions: [
         'リファクタリング実証的研究のためのデータセット作成環境',
         '研究にて制作，現在も改良中'
       ],
-      url: 'https://refactorhub.herokuapp.com/',
+      url: 'https://refactorhub.com/',
       date: 'Mar, 2019'
     },
     {
@@ -81,7 +67,6 @@ export default class extends Vue {
         '授業にてチームで制作',
         '主にフロントエンド(デザイン)を担当'
       ],
-      url: 'https://refactorhub.herokuapp.com/',
       date: 'Feb, 2018'
     }
   ]

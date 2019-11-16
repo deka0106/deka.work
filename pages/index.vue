@@ -1,10 +1,14 @@
 <template>
-  <v-layout justify-center align-center>
-    <div>
-      <v-layout column justify-center align-center>
-        <div class="balloon headline">I'm Deka</div>
-        <logo size="240" />
-        <v-layout row justify-center align-center>
+  <v-container fluid fill-height>
+    <v-row>
+      <v-col>
+        <v-row align="center" justify="center">
+          <balloon>I'm Deka</balloon>
+        </v-row>
+        <v-row align="center" justify="center">
+          <logo :size="240" />
+        </v-row>
+        <v-row align="center" justify="center">
           <v-btn
             v-for="account in accounts"
             :key="account.url"
@@ -12,21 +16,24 @@
             flat
             :href="account.url"
             target="_blank"
+            class="mx-1"
           >
             <v-icon size="32">{{ account.icon }}</v-icon>
           </v-btn>
-        </v-layout>
-      </v-layout>
-    </div>
-  </v-layout>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import Balloon from '~/components/Balloon.vue'
 import Logo from '~/components/Logo.vue'
 
 @Component({
   components: {
+    Balloon,
     Logo
   }
 })
@@ -43,24 +50,3 @@ export default class extends Vue {
   ]
 }
 </script>
-
-<style lang="stylus" scoped>
-$grey = #616161
-.balloon
-  position relative
-  display inline-block
-  margin 1em
-  padding 0.2em 1.6em
-  text-align center
-  background $grey
-  border-radius 1em
-
-  &::before
-    content ''
-    position absolute
-    bottom -1.6em
-    left 50%
-    margin-left -0.8em
-    border 0.8em solid transparent
-    border-top 1.2em solid $grey
-</style>

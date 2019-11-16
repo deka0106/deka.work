@@ -1,27 +1,25 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-content>
-      <v-container fill-height>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
-    <v-bottom-nav :active.sync="bottomNav" :value="true" fixed app>
+    <v-bottom-navigation v-model="bottomNav" fixed app>
       <v-btn
         v-for="link in links"
         :key="link.name"
         :to="link.path"
-        flat
         :value="link.name"
       >
         <span>{{ link.name }}</span>
         <v-icon>{{ link.icon }}</v-icon>
       </v-btn>
-    </v-bottom-nav>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
+
 @Component
 export default class extends Vue {
   bottomNav = ''

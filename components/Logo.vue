@@ -6,8 +6,9 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator'
+
 @Component
 export default class Logo extends Vue {
-  @Prop({ type: String, default: '160' }) readonly size!: string
+  @Prop({ type: Number, default: 160 }) readonly size!: number
 }
 </script>

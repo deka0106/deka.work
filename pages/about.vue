@@ -1,72 +1,56 @@
 <template>
-  <v-layout>
-    <v-container>
-      <v-layout column justify-center align-center>
-        <logo />
-        <v-flex display-1>Deka</v-flex>
-      </v-layout>
-      <v-divider class="my-2" />
-      <v-layout row wrap justify-space-around>
-        <card
-          v-for="card in cards"
-          :key="card.title"
-          :icon="card.icon"
-          :title="card.title"
-        >
-          <table class="px-3 py-2">
-            <tr v-for="content in card.contents" :key="content.item">
-              <td align="right" class="no-wrap font-weight-bold">
-                {{ content.item }}
-              </td>
-              <td align="left" class="pl-2">
-                {{ content.description }}
-                <a
-                  v-if="content.hasOwnProperty('link')"
-                  :href="content.link"
-                  target="_blank"
-                >
-                  <v-icon size="12">fas fa-external-link-alt</v-icon>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </card>
+  <v-container fill-height>
+    <v-row>
+      <v-col>
+        <v-row align="center" justify="center">
+          <logo />
+        </v-row>
+        <v-divider class="my-2" />
+        <v-row justify="center">
+          <v-col
+            v-for="card in cards"
+            :key="card.title"
+            cols="12"
+            sm="6"
+            lg="4"
+          >
+            <table-card
+              :icon="card.icon"
+              :title="card.title"
+              :contents="card.contents"
+            />
+          </v-col>
 
-        <card
-          v-for="card in listCards"
-          :key="card.title"
-          :icon="card.icon"
-          :title="card.title"
-        >
-          <div class="pa-2">
-            <ul>
-              <li v-for="content in card.contents" :key="content.item">
-                {{ content.item }}
-                <a
-                  v-if="content.hasOwnProperty('link')"
-                  :href="content.link"
-                  target="_blank"
-                >
-                  <v-icon size="12">fas fa-external-link-alt</v-icon>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </card>
-      </v-layout>
-    </v-container>
-  </v-layout>
+          <v-col
+            v-for="card in listCards"
+            :key="card.title"
+            cols="12"
+            sm="6"
+            lg="4"
+          >
+            <list-card
+              :icon="card.icon"
+              :title="card.title"
+              :contents="card.contents"
+            />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import Logo from '~/components/Logo.vue'
-import Card from '~/components/about/Card.vue'
+import ListCard from '~/components/about/ListCard.vue'
+import TableCard from '~/components/about/TableCard.vue'
 
 @Component({
   components: {
     Logo,
-    Card
+    ListCard,
+    TableCard
   }
 })
 export default class extends Vue {
@@ -144,7 +128,7 @@ export default class extends Vue {
       contents: [
         {
           item: 'フレームワーク',
-          description: 'SpringBoot, Vue.js, PixiJS, Ktor'
+          description: 'Spring Boot, Vue.js, PixiJS, Ktor'
         },
         {
           item: '開発環境',
@@ -200,7 +184,12 @@ export default class extends Vue {
           item:
             '株式会社エイチーム 1dayインターンシップ ゲームプログラマーコース （2017年8月）'
         },
-        { item: '株式会社エヌツーエスエム（2018年4月〜）' }
+        { item: '株式会社エヌツーエスエム（2018年4月〜）' },
+        {
+          item: 'LINEサマーインターンシップ（2019年8月〜9月）',
+          link:
+            'https://engineering.linecorp.com/ja/blog/2019summer-intern-report-frontend/'
+        }
       ]
     }
   ]
