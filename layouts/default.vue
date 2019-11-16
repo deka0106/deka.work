@@ -30,3 +30,9 @@ export default class extends Vue {
   ]
 }
 </script>
+
+<style lang="scss" scoped>
+.v-item-group.v-bottom-navigation .v-btn {
+  height: inherit;
+}
+</style>

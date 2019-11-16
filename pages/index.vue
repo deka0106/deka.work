@@ -13,7 +13,7 @@
             v-for="account in accounts"
             :key="account.url"
             icon
-            flat
+            text
             :href="account.url"
             target="_blank"
             class="mx-1"
