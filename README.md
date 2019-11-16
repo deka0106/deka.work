@@ -1,6 +1,6 @@
-# deka.work
+# Deka
 
-> My kryptonian Nuxt.js project
+Deka's portfolio.
 
 ## Build Setup
 
