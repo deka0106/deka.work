@@ -1,12 +1,8 @@
 <template>
   <v-container fill-height>
-    <v-row>
-      <v-col>
-        <v-row justify="center">
-          <v-col v-for="work in works" :key="work.name" cols="12" sm="6" lg="4">
-            <work-card :work="work" />
-          </v-col>
-        </v-row>
+    <v-row class="fit-width">
+      <v-col v-for="work in works" :key="work.name" cols="12" sm="6" lg="4">
+        <work-card :work="work" />
       </v-col>
     </v-row>
   </v-container>
@@ -72,3 +68,9 @@ export default class extends Vue {
   ]
 }
 </script>
+
+<style lang="scss" scoped>
+.fit-width {
+  max-width: calc(100% + 24px);
+}
+</style>
