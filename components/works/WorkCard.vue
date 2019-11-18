@@ -1,6 +1,6 @@
 <template>
-  <v-card hover max-width="400" class="mx-auto">
-    <v-img :src="work.img" height="250" />
+  <v-card hover>
+    <v-img :src="work.img" />
     <v-card-title primary-title class="py-2">
       <span class="headline">{{ work.name }}</span>
     </v-card-title>

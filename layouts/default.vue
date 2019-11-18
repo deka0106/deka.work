@@ -3,7 +3,7 @@
     <v-content>
       <nuxt />
     </v-content>
-    <v-bottom-navigation v-model="bottomNav" fixed app>
+    <v-bottom-navigation v-model="bottomNav" grow fixed app>
       <v-btn
         v-for="link in links"
         :key="link.name"

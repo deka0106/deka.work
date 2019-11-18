@@ -1,7 +1,14 @@
 <template>
   <v-container fill-height>
     <v-row class="fit-width">
-      <v-col v-for="work in works" :key="work.name" cols="12" sm="6" lg="4">
+      <v-col
+        v-for="work in works"
+        :key="work.name"
+        cols="12"
+        sm="6"
+        lg="4"
+        xl="3"
+      >
         <work-card :work="work" />
       </v-col>
     </v-row>
