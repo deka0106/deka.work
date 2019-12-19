@@ -1,6 +1,6 @@
 <template>
   <v-avatar :size="size" tile>
-    <img src="/icon.png" />
+    <img src="/icon.png" alt="Deka" />
   </v-avatar>
 </template>
 

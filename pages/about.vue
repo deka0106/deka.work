@@ -167,6 +167,7 @@ export default class extends Vue {
       ]
     }
   ]
+
   listCards = [
     {
       icon: 'fas fa-award',

@@ -8,6 +8,9 @@ const config: Configuration = {
    */
   head: {
     title: 'Deka',
+    htmlAttrs: {
+      lang: 'ja'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,20 +20,7 @@ const config: Configuration = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.8.2/css/all.css',
-        integrity:
-          'sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay',
-        crossorigin: 'anonymous'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -49,29 +39,42 @@ const config: Configuration = {
   plugins: [],
 
   /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify',
+    'nuxt-webfontloader'
+  ],
+
+  /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
+  modules: [],
 
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
+    customVariables: ['~/assets/styles/variables.scss'],
+    defaultAssets: {
+      font: {
+        family: 'M PLUS Rounded 1c'
+      },
+      icons: 'fa'
+    },
     theme: {
       dark: true
     },
-    icons: {
-      iconfont: 'fa'
-    },
-    customVariables: ['~/assets/styles/variables.scss']
+    treeShake: true
   },
 
   /*
    ** Build configuration
    */
-  build: {},
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/eslint-module']
+  build: {}
 }
 
 export default config

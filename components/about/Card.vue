@@ -16,6 +16,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 export default class Card extends Vue {
   @Prop({ required: true })
   readonly icon!: string
+
   @Prop({ required: true })
   readonly title!: string
 }

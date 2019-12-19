@@ -15,7 +15,9 @@
             icon
             text
             :href="account.url"
+            :aria-label="account.name"
             target="_blank"
+            rel="noopener noreferrer"
             class="mx-1"
           >
             <v-icon size="32">{{ account.icon }}</v-icon>
@@ -40,10 +42,12 @@ import Logo from '~/components/Logo.vue'
 export default class extends Vue {
   accounts = [
     {
+      name: 'GitHub',
       url: 'https://github.com/deka0106',
       icon: 'fab fa-github fa-fw'
     },
     {
+      name: 'Twitter',
       url: 'https://twitter.com/deka0106',
       icon: 'fab fa-twitter fa-fw'
     }

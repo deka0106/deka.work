@@ -9,8 +9,8 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "lint": "eslint --ext .js,.ts,.html,.vue --ignore-path .gitignore .",
+    "format": "prettier --write --ignore-path .gitignore **/*.{js,ts,html,vue}"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.3.3",

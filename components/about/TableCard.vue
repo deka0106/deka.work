@@ -34,8 +34,10 @@ import Card from '~/components/about/Card.vue'
 export default class TableCard extends Vue {
   @Prop({ required: true })
   readonly icon!: string
+
   @Prop({ required: true })
   readonly title!: string
+
   @Prop({ required: true })
   readonly contents!: { item: string; description: string; link?: string }[]
 }

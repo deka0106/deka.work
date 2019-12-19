@@ -31,8 +31,10 @@ import Card from '~/components/about/Card.vue'
 export default class ListCard extends Vue {
   @Prop({ required: true })
   readonly icon!: string
+
   @Prop({ required: true })
   readonly title!: string
+
   @Prop({ required: true })
   readonly contents!: { item: string; link?: string }[]
 }
