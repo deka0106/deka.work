@@ -74,7 +74,13 @@ const config: Configuration = {
   /*
    ** Build configuration
    */
-  build: {}
+  build: {},
+
+  render: {
+    static: {
+      maxAge: '30d'
+    }
+  }
 }
 
 export default config
