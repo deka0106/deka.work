@@ -1,15 +1,11 @@
 import { Configuration } from '@nuxt/types'
 
-const config: Configuration = {
+export default {
   mode: 'spa',
-
-  /*
-   ** Headers of the page
-   */
   head: {
     title: 'Deka',
     htmlAttrs: {
-      lang: 'ja'
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
@@ -17,70 +13,39 @@ const config: Configuration = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
-  /*
-   ** Customize the progress-bar color
-   */
   loading: {},
-
-  /*
-   ** Global CSS
-   */
+  typescript: { typeCheck: { eslint: true } },
   css: [],
-
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [],
-
-  /*
-   ** Nuxt.js dev-modules
-   */
+  plugins: ['@/plugins/composition-api'],
+  build: {},
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
   ],
-
-  /*
-   ** Nuxt.js modules
-   */
   modules: [],
-
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
   vuetify: {
-    customVariables: ['~/assets/styles/variables.scss'],
+    customVariables: ['@/assets/styles/variables.scss'],
     defaultAssets: {
       font: {
-        family: 'M PLUS Rounded 1c'
+        family: 'M PLUS Rounded 1c',
       },
-      icons: 'fa'
+      icons: 'fa',
     },
     theme: {
-      dark: true
+      dark: true,
     },
-    treeShake: true
+    treeShake: true,
   },
-
-  /*
-   ** Build configuration
-   */
-  build: {},
-
   render: {
     static: {
-      maxAge: '30d'
-    }
-  }
-}
-
-export default config
+      maxAge: '30d',
+    },
+  },
+} as Configuration

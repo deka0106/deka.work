@@ -27,18 +27,23 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+import { defineComponent, PropType } from '@vue/composition-api'
 
-@Component
-export default class WorkCard extends Vue {
-  @Prop({ required: true })
-  readonly work!: {
-    name: string
-    img: string
-    tags: string[]
-    descriptions: string[]
-    url?: string
-    date: string
-  }
+export interface Work {
+  name: string
+  img: string
+  tags: string[]
+  descriptions: string[]
+  url?: string
+  date: string
 }
+
+export default defineComponent({
+  props: {
+    work: {
+      type: Object as PropType<Work>,
+      required: true,
+    },
+  },
+})
 </script>

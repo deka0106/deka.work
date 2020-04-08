@@ -20,22 +20,26 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
-import Card from '~/components/about/Card.vue'
+import { defineComponent, PropType } from '@vue/composition-api'
+import Card from '@/components/about/Card.vue'
 
-@Component({
+export default defineComponent({
   components: {
-    Card
-  }
+    Card,
+  },
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    contents: {
+      type: Array as PropType<{ item: string; link?: string }[]>,
+      required: true,
+    },
+  },
 })
-export default class ListCard extends Vue {
-  @Prop({ required: true })
-  readonly icon!: string
-
-  @Prop({ required: true })
-  readonly title!: string
-
-  @Prop({ required: true })
-  readonly contents!: { item: string; link?: string }[]
-}
 </script>

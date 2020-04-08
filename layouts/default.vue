@@ -18,17 +18,22 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { defineComponent, ref } from '@vue/composition-api'
 
-@Component
-export default class extends Vue {
-  bottomNav = ''
-  links = [
-    { name: 'Home', path: '/', icon: 'fas fa-home' },
-    { name: 'About', path: '/about', icon: 'fas fa-address-card' },
-    { name: 'Works', path: '/works', icon: 'fas fa-heart' }
-  ]
-}
+export default defineComponent({
+  setup() {
+    const bottomNav = ref('')
+    const links = ref([
+      { name: 'Home', path: '/', icon: 'fas fa-home' },
+      { name: 'About', path: '/about', icon: 'fas fa-address-card' },
+      { name: 'Works', path: '/works', icon: 'fas fa-heart' },
+    ])
+    return {
+      bottomNav,
+      links,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>

@@ -5,10 +5,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { defineComponent } from '@vue/composition-api'
 
-@Component
-export default class Balloon extends Vue {}
+export default defineComponent({})
 </script>
 
 <style lang="scss" scoped>

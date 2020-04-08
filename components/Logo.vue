@@ -5,10 +5,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+import { defineComponent } from '@vue/composition-api'
 
-@Component
-export default class Logo extends Vue {
-  @Prop({ type: Number, default: 160 }) readonly size!: number
-}
+export default defineComponent({
+  props: {
+    size: {
+      type: Number,
+      default: 160,
+    },
+  },
+})
 </script>

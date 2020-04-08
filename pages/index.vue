@@ -29,28 +29,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import Balloon from '~/components/Balloon.vue'
-import Logo from '~/components/Logo.vue'
+import { defineComponent, ref } from '@vue/composition-api'
+import Balloon from '@/components/Balloon.vue'
+import Logo from '@/components/Logo.vue'
 
-@Component({
+export default defineComponent({
   components: {
     Balloon,
-    Logo
-  }
+    Logo,
+  },
+  setup() {
+    const accounts = ref([
+      {
+        name: 'GitHub',
+        url: 'https://github.com/deka0106',
+        icon: 'fab fa-github fa-fw',
+      },
+      {
+        name: 'Twitter',
+        url: 'https://twitter.com/deka0106',
+        icon: 'fab fa-twitter fa-fw',
+      },
+    ])
+    return { accounts }
+  },
 })
-export default class extends Vue {
-  accounts = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/deka0106',
-      icon: 'fab fa-github fa-fw'
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/deka0106',
-      icon: 'fab fa-twitter fa-fw'
-    }
-  ]
-}
 </script>
